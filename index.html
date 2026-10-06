@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#d9e9c1">
+  <title>Happy Birthday Jin Guan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root { --moss:#475a1e; --pistachio:#d9e9c1; --white:#fff; --olive:#6c7f3e; --dark-leaf:#1a2609; --glow:rgba(255,255,255,.4); --transition:cubic-bezier(.23,1,.32,1); }
+    * { box-sizing:border-box; }
+    [hidden] { display:none !important; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--pistachio); color:var(--white); font-family:'Cormorant Garamond',Georgia,serif; line-height:1.4; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+    button,textarea { font:inherit; } a { color:inherit; } button:focus-visible,a:focus-visible,textarea:focus-visible,video:focus-visible { outline:3px solid #e7a4bb; outline-offset:5px; }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    #grain { position:fixed; inset:0; pointer-events:none; z-index:50; opacity:.14; background:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); mix-blend-mode:multiply; }
+    .stage { max-width:1400px; margin:0 auto; padding:0 2rem 2rem; position:relative; }
+    .tiger-motif { position:absolute; top:24rem; left:50%; width:90%; height:55rem; transform:translate(-50%,-50%); background:radial-gradient(circle,var(--glow),transparent 60%); opacity:.25; z-index:-1; filter:blur(40px); pointer-events:none; }
+    header { width:100vw; max-width:none; height:min(100svh,920px); min-height:640px; margin:0 0 0 calc(50% - 50vw); padding:3rem 2rem 2rem; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; position:relative; isolation:isolate; background:var(--pistachio) url('./apple-hero.png') center/cover no-repeat; }
+    .hero-copy { width:min(100%,460px); padding:1rem; transform:translateY(clamp(2rem,8vh,5rem)); text-shadow:0 1px 18px #121e082e; }
+    .hero-copy > .mono:first-child { white-space:nowrap; }
+    .mono { font-family:'JetBrains Mono',monospace; font-size:.75rem; text-transform:uppercase; letter-spacing:.3em; color:var(--white); text-shadow:0 0 10px #ffffff4d; }
+    h1 { position:relative; left:50%; transform:translateX(-50%); width:max-content; font-size:clamp(2.8rem,7vw,5.7rem); font-weight:600; line-height:1.1; margin:0 0 1.5rem; text-transform:capitalize; letter-spacing:-.02em; white-space:nowrap; }
+    .hero-sub { max-width:410px; margin:0 auto; font-size:clamp(1.05rem,1.7vw,1.2rem); opacity:.9; }
+    .hero-enter { display:block; margin-top:4rem; text-decoration:none; }
+    .timeline { margin-top:10vh; display:flex; flex-direction:column; gap:20vh; }
+    .year-block { --year-radius:100px; --year-fade:clamp(32px,5vw,80px); position:relative; isolation:isolate; display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center; padding:4rem; border-radius:var(--year-radius); background:transparent; }
+    .year-block::before { content:""; position:absolute; z-index:-1; inset:calc(-1 * var(--year-fade)); border-radius:calc(var(--year-radius) + var(--year-fade)); background:var(--moss); -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 var(--year-fade),#000 calc(100% - var(--year-fade)),transparent 100%),linear-gradient(0deg,transparent 0,#000 var(--year-fade),#000 calc(100% - var(--year-fade)),transparent 100%); -webkit-mask-composite:source-in; mask-image:linear-gradient(90deg,transparent 0,#000 var(--year-fade),#000 calc(100% - var(--year-fade)),transparent 100%),linear-gradient(0deg,transparent 0,#000 var(--year-fade),#000 calc(100% - var(--year-fade)),transparent 100%); mask-composite:intersect; pointer-events:none; }
+    .year-block:nth-child(even) { direction:rtl; }
+    .year-block:nth-child(even) > * { direction:ltr; }
+    .photo-frame { position:relative; aspect-ratio:1; min-width:0; background:var(--olive); overflow:hidden; border-radius:50%; border:1px solid var(--white); transition:transform .8s var(--transition); }
+    .photo-frame:hover { transform:scale(1.035) rotate(1deg); }
+    .photo-frame img { width:100%; height:100%; object-fit:cover; display:block; }
+    .photo-placeholder { position:absolute; inset:0; display:grid; place-items:center; text-align:center; padding:2rem; background:radial-gradient(circle at 35% 30%,#84965a,#5f7438 60%,#3e521d); color:#fff; }
+    .photo-placeholder span { display:block; font-size:clamp(1.2rem,3vw,2rem); font-style:italic; }
+    .photo-controls { position:absolute; bottom:12%; inset-inline:0; z-index:3; display:flex; justify-content:center; gap:.5rem; }
+    .photo-controls button { border:1px solid #fff; border-radius:50%; background:#475a1eaa; color:#fff; width:2rem; height:2rem; cursor:pointer; }
+    .story-content h2 { font-size:4.5rem; margin:.3rem 0 .5rem; color:var(--white); font-weight:600; }
+    .story-content p { font-size:1.2rem; max-width:450px; opacity:.85; margin:0; }
+    .ritual-section { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:4rem 0; }
+    #gift-box { width:250px; height:250px; background:var(--moss); border:0; color:#fff; border-radius:50% 50% 48% 48% / 45% 45% 55% 55%; display:flex; align-items:center; justify-content:center; cursor:pointer; position:relative; transition:transform 1.2s var(--transition),opacity .6s; box-shadow:0 20px 50px #00000026; }
+    #gift-box::after { content:''; position:absolute; top:-20px; width:4px; height:30px; background:var(--olive); border-radius:2px; }
+    #gift-box:hover { transform:translateY(-5px); }
+    .cake-stage { display:none; width:min(100%,700px); margin:2rem auto 0; padding:0 1rem 2rem; color:var(--moss); }
+    .cake-stage.open { display:block; animation:appear .7s both; }
+    .cake-stage .mono,.cake-stage .status { color:var(--moss); text-shadow:none; }
+    .cake-stage .btn { border-color:var(--moss); color:var(--moss); }
+    .cake-stage .btn:hover:not(:disabled) { background:var(--moss); color:#fff; }
+    .cake-visual { width:min(100%,640px); margin:0 auto; position:relative; aspect-ratio:2/3; transition:opacity .6s,filter .6s; }
+    .matching-candle { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+    .cake-visual img { width:100%; height:100%; display:block; object-fit:contain; pointer-events:none; }
+    .cake-stage.extinguished .cake-visual { opacity:.15; filter:brightness(.5); }
+    .candle { position:absolute; top:var(--top); left:var(--left); transform:translateX(-50%); width:clamp(44px,8%,74px); height:15%; border:0; border-radius:40px; padding:0; background:transparent; cursor:pointer; touch-action:manipulation; }
+    .candle:hover:not(:disabled),.candle:focus-visible { background:radial-gradient(ellipse,#ffe3a255,transparent 70%); }
+    .candle:disabled { cursor:default; }
+    .flame { position:absolute; z-index:3; bottom:calc(100% - 2px); left:50%; transform:translateX(-50%); transform-origin:50% 100%; width:clamp(20px,4vw,35px); height:clamp(30px,5vw,48px); border-radius:50% 50% 46% 46%; background:radial-gradient(ellipse at 50% 70%,#fff 0 16%,#ffe47a 28%,#ffa64c 49%,#e76434 64%,transparent 72%); filter:blur(2px) drop-shadow(0 0 10px #ffbe51); opacity:0; transition:opacity .3s; pointer-events:none; }
+    .candle.lit .flame { opacity:.78; animation:soft-flicker 1.5s infinite alternate; }
+    @keyframes soft-flicker { from { transform:translateX(-50%) scale(.94);opacity:.8; } to { transform:translateX(-50%) scale(1.08) rotate(2deg);opacity:1; } }
+    .stone-container { margin-top:10vh; display:none; width:100%; }
+    .stone-container.visible { display:block; animation:appear .8s both; }
+    #wishing-stone { background:var(--moss); padding:4rem; border-radius:50%; width:600px; height:600px; display:flex; flex-direction:column; justify-content:center; align-items:center; margin:0 auto; border:2px solid var(--glow); box-shadow:inset 0 0 100px #0000001a; }
+    #wishing-stone p { font-size:1.05rem; max-width:390px; margin:.5rem auto 1.5rem; }
+    textarea { background:transparent; border:0; border-bottom:1px solid var(--glow); color:var(--white); width:80%; min-height:6rem; font-size:1.8rem; text-align:center; resize:vertical; padding:1rem; }
+    textarea::placeholder { color:#ffffffe0; }
+    .btn { background:transparent; border:1px solid var(--white); color:var(--white); padding:1rem 2.5rem; font-family:'JetBrains Mono',monospace; font-size:.75rem; cursor:pointer; margin:15px; border-radius:50px; transition:background .4s,color .4s; text-transform:uppercase; letter-spacing:.2em; }
+    .btn:hover:not(:disabled) { background:var(--white); color:var(--moss); }
+    .btn:disabled { opacity:.5; cursor:not-allowed; }
+    .choice[aria-pressed="true"] { background:#f1c3d1; border-color:#f1c3d1; color:var(--dark-leaf); }
+    .status { min-height:1.4em; margin:.5rem 0; font-family:'JetBrains Mono',monospace; font-size:.7rem; letter-spacing:.04em; }
+    #final-reveal { background:var(--moss); margin:10vh 2rem; padding:10vh 2rem; border-radius:100px; }
+    #final-letter { max-width:600px; margin:4rem auto; font-size:1.8rem; font-style:italic; text-align:center; white-space:pre-wrap; text-shadow:0 0 20px #ffffff33; }
+    .video-shell { aspect-ratio:16/9; background:var(--olive); max-width:800px; margin:0 auto; border-radius:40px; border:1px solid var(--white); overflow:hidden; position:relative; }
+    .video-shell video { width:100%; height:100%; display:block; background:#253712; }
+    footer { padding:6rem 0; text-align:center; color:var(--moss); }
+    footer a { display:inline-block; margin:0 1rem; text-decoration:none; border-bottom:1px solid var(--moss); }
+    @keyframes appear { from { opacity:0;transform:translateY(20px); } to { opacity:1;transform:translateY(0); } }
+    @media(max-width:900px) { .stage { padding:0 1.25rem 1.25rem; } header { height:min(92svh,820px); min-height:560px; padding:3rem 1.5rem 2rem; } .hero-copy { transform:translateY(clamp(1rem,5vh,3rem)); } .year-block { --year-radius:50px; grid-template-columns:1fr; gap:3rem; padding:2rem; } .year-block:nth-child(even) { direction:ltr; } .story-content h2 { font-size:3.5rem; } #wishing-stone { width:min(90vw,600px); height:min(90vw,600px); border-radius:50px; } }
+    @media(max-width:560px) { .stage { padding:0 1rem 1rem; } header { height:540px; min-height:0; padding:1.5rem; background-image:url('./apple-hero-mobile.png'); } .hero-copy { transform:translateY(1.5rem); } .hero-copy > .mono:first-child { font-size:.55rem; letter-spacing:.12em; } h1 { font-size:clamp(3rem,13vw,4.8rem); } .hero-sub { font-size:1.1rem; } .hero-enter { margin-top:2.5rem; font-size:.58rem; } .timeline { gap:5rem; margin-top:5rem; } .year-block { --year-radius:36px; padding:1.25rem; gap:1.5rem; } .story-content h2 { font-size:3rem; } .story-content p { font-size:1.1rem; } .photo-frame { width:100%; } .ritual-section { min-height:90svh; } .cake-stage { width:100%; padding:1rem 0 2rem; } .cake-stage .btn { margin:.4rem; padding:.8rem 1rem; letter-spacing:.08em; } #wishing-stone { width:100%; height:auto; min-height:470px; padding:2rem 1.25rem; border-radius:40px; } #wishing-stone textarea { width:100%; font-size:1.4rem; } #final-reveal { margin:5rem 0; padding:4rem 1.25rem; border-radius:48px; } #final-letter { margin:2rem auto; font-size:1.5rem; } .video-shell { border-radius:24px; } footer { padding:4rem 0; } footer a { margin:.4rem; } }
+    @media(hover:hover) and (pointer:fine) { html,body,button,a,textarea { cursor:none !important; } }
+    @media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; } .cursor-sparkle { display:none; } }
+    .flower-cursor { position:fixed; left:0; top:0; width:61px; height:61px; z-index:100; pointer-events:none; transform:translate(-50%,-50%); opacity:0; transition:opacity .15s; filter:drop-shadow(0 2px 3px #5d263a55); }
+    .flower-cursor.visible { opacity:1; }
+    .flower-cursor img { display:block; width:100%; height:100%; object-fit:contain; user-select:none; -webkit-user-drag:none; }
+    .flower-cursor.spark { filter:drop-shadow(0 0 8px #ffd6e7) drop-shadow(0 0 4px #f6a9c9); }
+    .cursor-sparkle { position:fixed; z-index:99; width:var(--size); height:var(--size); border-radius:50%; pointer-events:none; background:radial-gradient(circle,#fff 0 16%,#fff5fa 28%,#ffc7df 55%,#f09abd 75%,transparent 100%); box-shadow:0 0 4px 2px #ffe2efcc,0 0 11px 4px #f5a4ca77; animation:glitterDrift var(--life) ease-out forwards; }
+    .cursor-sparkle.star::before,.cursor-sparkle.star::after { content:""; position:absolute; left:50%; top:50%; background:#fff7fb; border-radius:50%; box-shadow:0 0 5px #ffd8eb; transform:translate(-50%,-50%); }
+    .cursor-sparkle.star::before { width:1px; height:calc(var(--size) * 2.8); }
+    .cursor-sparkle.star::after { width:calc(var(--size) * 2.8); height:1px; }
+    @keyframes glitterDrift { 0% { opacity:0;transform:translate(0,0) scale(.2); } 16% { opacity:1;transform:translate(0,-2px) scale(1); } 55% { opacity:.9; } 100% { opacity:0;transform:translate(var(--dx),var(--dy)) scale(.25); } }
+    /* Watercolor memory layout follows the supplied 1793 × 877 composition. */
+    :root { --section-blend:clamp(72px,8vw,150px); --memory-edge:#f8faef; }
+    footer { display:none; }
+    header { z-index:51; }
+    header::after { content:""; position:absolute; z-index:0; inset:auto 0 0; height:var(--section-blend); background:linear-gradient(to bottom,transparent,var(--memory-edge)); pointer-events:none; }
+    .hero-copy { position:relative; z-index:1; }
+    .timeline { position:relative; z-index:51; width:100vw; margin:0 0 0 calc(50% - 50vw); gap:0; }
+    .year-block { position:relative; isolation:isolate; container-type:inline-size; display:block; width:100%; aspect-ratio:1793 / 877; padding:0; border-radius:0; background:var(--memory-edge); color:#435719; }
+    .year-block::before { content:none; }
+    .year-block:nth-child(even) { direction:ltr; }
+    .memory-visual { position:absolute; inset:0; }
+    .memory-art { position:absolute; inset:0; width:100%; height:100%; z-index:2; pointer-events:none; -webkit-mask-image:linear-gradient(to bottom,transparent,#000 7%,#000 93%,transparent); mask-image:linear-gradient(to bottom,transparent,#000 7%,#000 93%,transparent); }
+    .ritual-section { position:relative; z-index:51; isolation:isolate; }
+    .ritual-section::before { content:""; position:absolute; z-index:-1; left:calc(50% - 50vw); top:0; width:100vw; height:var(--section-blend); background:linear-gradient(to bottom,var(--memory-edge),transparent); pointer-events:none; }
+    .photo-frame { position:absolute; left:11.72%; top:16.76%; width:33.75%; height:67.5%; aspect-ratio:auto; min-width:0; border:0; background:#f8f5e9; border-radius:50%; z-index:1; }
+    .photo-frame:hover { transform:none; }
+    .photo-frame img[src$="5b196c431afffa310b2f2cae11c8baf3.jpg"] { object-view-box:inset(15.5% 0); object-fit:fill; }
+    .story-content { position:absolute; z-index:3; left:54.65%; top:33.52%; width:35%; color:#435719; }
+    .story-content .mono { display:grid; place-items:center; width:11.05cqw; height:2.85cqw; color:#9c5735; font-size:1.12cqw; letter-spacing:.23cqw; text-shadow:none; white-space:nowrap; }
+    .story-content h2 { font-family:'Cormorant Garamond',Georgia,serif; font-size:7.6cqw; line-height:.74; margin:-.6cqw 0 2cqw; color:inherit; font-weight:600; letter-spacing:-.035em; }
+    .story-content p { font-family:'Microsoft YaHei','PingFang SC',Arial,sans-serif; font-size:1.45cqw; line-height:1.45; max-width:none; opacity:1; margin:0; white-space:pre-wrap; overflow-wrap:anywhere; }
+    @media(max-width:900px) {
+      .year-block { aspect-ratio:auto; padding:0 0 3.5rem; background:radial-gradient(ellipse at 50% 58%,#e2efcd,var(--memory-edge) 82%); }
+      .memory-visual { position:relative; inset:auto; height:91.35cqw; overflow:hidden; }
+      .memory-art { width:186.77%; max-width:none; }
+      .photo-frame { left:21.89%; top:16.76%; width:63.04%; height:67.5%; }
+      .story-content { position:relative; left:auto; top:auto; width:auto; padding:0 8%; margin-top:-1rem; text-align:center; }
+      .story-content .mono { width:11rem; height:2.7rem; margin:auto; border-radius:2rem; background:#ffd7d3; font-size:.85rem; letter-spacing:.2em; }
+      .story-content h2 { font-size:4.5rem; line-height:1; margin:1rem 0; }
+      .story-content p { font-size:1.1rem; max-width:600px; margin:auto; }
+    }
+    .music-player { position:fixed; z-index:90; top:max(16px,env(safe-area-inset-top)); right:max(16px,env(safe-area-inset-right)); width:280px; padding:12px 15px; border:1px solid #edbbc8; border-radius:18px; background:#fffaf0ed; box-shadow:0 5px 22px #43571918; color:var(--moss); font:13px/1.4 'Microsoft YaHei','PingFang SC',Arial,sans-serif; backdrop-filter:blur(12px); }
+    .music-top,.music-controls,.music-time { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+    .music-title { font-weight:600; }
+    .music-player button { border:1px solid #dfafbe; border-radius:999px; background:#ffe3e8; color:#694452; padding:5px 10px; font-size:12px; white-space:nowrap; }
+    .music-controls { margin-top:9px; }
+    .music-progress { flex:1; width:100%; min-width:0; accent-color:#bb7892; }
+    .music-time { margin-top:3px; padding-left:59px; font:11px/1.4 'JetBrains Mono',monospace; color:#76835f; }
+    .music-message { margin:7px 0 0; font-size:11px; color:#8a485e; }
+    @media(max-width:560px) { .music-player { top:max(10px,env(safe-area-inset-top)); right:max(10px,env(safe-area-inset-right)); width:240px; padding:9px 12px; } }
+  </style>
+</head>
+<body>
+  <aside class="music-player" aria-label="Background music player">
+    <audio id="background-music" src="./love-song.mp3" preload="metadata" loop></audio>
+    <div class="music-top"><span class="music-title">Khalil Fong · Love Song</span><button id="music-toggle" type="button" aria-pressed="false">Music On</button></div>
+    <div class="music-controls"><button id="music-play" type="button" aria-label="Play music">Play</button><label class="sr-only" for="music-progress">Song progress</label><input id="music-progress" class="music-progress" type="range" min="0" max="0" step="0.1" value="0" disabled aria-valuetext="0:00"></div>
+    <div class="music-time"><span id="music-current">0:00</span><span id="music-duration">0:00</span></div>
+    <p id="music-message" class="music-message" role="status" hidden></p>
+  </aside>
+  <div id="grain" aria-hidden="true"></div>
+  <div class="flower-cursor" id="cursor" aria-hidden="true"><img src="./blossom-cursor.png" alt="" draggable="false"></div>
+  <main class="stage">
+    <div class="tiger-motif" aria-hidden="true"></div>
+    <header id="top">
+      <div class="hero-copy">
+        <div class="mono" style="margin-bottom:2rem">LAT: 34.0522° N // LONG: 118.2437° W</div>
+        <h1>Happy Birthday<br>Jin Guan</h1>
+        <p class="hero-sub" lang="zh-CN">希望纸巾越来越好！<br>顺顺利利！发大财！</p>
+        <a class="mono hero-enter" href="#timeline-container">Scroll to enter the archive</a>
+      </div>
+    </header>
+    <span id="memories" aria-hidden="true"></span>
+    <section class="timeline" id="timeline-container" aria-label="Memories from 2021 to 2026"></section>
+    <section class="ritual-section" id="birthday-ritual" aria-label="Birthday ritual">
+      <div id="gift-intro"><div class="mono" style="margin-bottom:2rem;color:var(--moss)">Vessel Detected</div><button id="gift-box" type="button" aria-label="Open birthday gift"><span class="mono">OPEN</span></button></div>
+      <div class="cake-stage" id="cake-stage"><div class="mono" style="margin-bottom:1rem">Initialize Ritual</div><div class="cake-visual" id="candle-grid" role="group" aria-label="Birthday cake with four candles"><img src="./tiger-birthday-cake-unlit.png" alt="Two-tier birthday cake with a smiling child in a tiger hood and four unlit candles."><svg class="matching-candle" viewBox="0 0 1024 1536" aria-hidden="true" focusable="false"><defs><clipPath id="left-candle-copy"><path d="M 318.4,875 L 316.4,876 L 314.4,877 L 312.4,878 L 311.4,879 L 311.4,880 L 310.4,881 L 309.4,882 L 309.4,883 L 308.4,884 L 308.4,885 L 308.4,886 L 308.4,887 L 308.4,888 L 308.4,889 L 308.4,890 L 308.4,891 L 308.4,892 L 308.4,893 L 308.4,894 L 308.4,895 L 308.4,896 L 308.4,897 L 308.4,898 L 308.4,899 L 308.4,900 L 308.4,901 L 308.4,902 L 308.4,903 L 308.4,904 L 308.4,905 L 307.4,906 L 307.4,907 L 307.4,908 L 307.4,909 L 307.4,910 L 307.4,911 L 307.4,912 L 307.4,913 L 307.4,914 L 307.4,915 L 307.4,916 L 307.4,917 L 307.4,918 L 307.4,919 L 308.4,920 L 308.4,921 L 308.4,922 L 308.4,923 L 308.4,924 L 307.4,925 L 307.4,926 L 307.4,927 L 307.4,928 L 307.4,929 L 307.4,930 L 307.4,931 L 308.4,932 L 308.4,933 L 308.4,934 L 308.4,935 L 308.4,936 L 308.4,937 L 308.4,938 L 308.4,939 L 308.4,940 L 308.4,941 L 308.4,942 L 308.4,943 L 308.4,944 L 308.4,945 L 308.4,946 L 308.4,947 L 308.4,948 L 308.4,949 L 308.4,950 L 308.4,951 L 308.4,952 L 308.4,953 L 308.4,954 L 308.4,955 L 308.4,956 L 308.4,957 L 308.4,958 L 308.4,959 L 308.4,960 L 308.4,961 L 308.4,962 L 308.4,963 L 308.4,964 L 308.4,965 L 308.4,966 L 308.4,967 L 308.4,968 L 308.4,969 L 308.4,970 L 308.4,971 L 308.4,972 L 308.4,973 L 308.4,974 L 308.4,975 L 308.4,976 L 308.4,977 L 308.4,978 L 308.4,979 L 309.4,980 L 309.4,981 L 308.4,982 L 309.4,983 L 309.4,984 L 309.4,985 L 309.4,986 L 309.4,987 L 309.4,988 L 309.4,989 L 309.4,990 L 309.4,991 L 309.4,992 L 309.4,993 L 309.4,994 L 309.4,995 L 309.4,996 L 309.4,997 L 309.4,998 L 309.4,999 L 309.4,1000 L 309.4,1001 L 309.4,1002 L 309.4,1003 L 309.4,1004 L 309.4,1005 L 309.4,1006 L 309.4,1007 L 309.4,1008 L 309.4,1009 L 309.4,1010 L 309.4,1011 L 309.4,1012 L 309.4,1013 L 309.4,1014 L 309.4,1015 L 309.4,1016 L 309.4,1017 L 309.4,1018 L 309.4,1019 L 309.4,1020 L 310.4,1021 L 310.4,1022 L 310.4,1023 L 309.4,1024 L 309.4,1025 L 310.4,1026 L 310.4,1027 L 309.4,1028 L 310.4,1029 L 310.4,1030 L 310.4,1031 L 310.4,1032 L 310.4,1033 L 310.4,1034 L 310.4,1035 L 310.4,1036 L 310.4,1037 L 310.4,1038 L 310.4,1039 L 311.4,1040 L 311.4,1041 L 311.4,1042 L 311.4,1043 L 311.4,1044 L 311.4,1045 L 311.4,1046 L 311.4,1047 L 311.4,1048 L 311.4,1049 L 311.4,1050 L 311.4,1051 L 311.4,1052 L 310.4,1053 L 312.4,1054 L 312.4,1055 L 312.4,1056 L 312.4,1057 L 312.4,1058 L 312.4,1059 L 312.4,1060 L 312.4,1061 L 312.4,1062 L 312.4,1063 L 312.4,1064 L 312.4,1065 L 312.4,1066 L 311.4,1067 L 311.4,1068 L 312.4,1069 L 311.4,1070 L 311.4,1071 L 311.4,1072 L 310.4,1073 L 310.4,1074 L 310.4,1075 L 310.4,1076 L 311.4,1077 L 311.4,1078 L 312.4,1079 L 313.4,1080 L 318.4,1081 L 319.4,1082 L 320.4,1083 L 320.4,1084 L 328.4,1085 L 329.4,1086 L 332.6,1086 L 333.6,1085 L 334.6,1084 L 340.6,1083 L 341.6,1082 L 342.6,1081 L 342.6,1080 L 343.6,1079 L 346.6,1078 L 347.6,1077 L 347.6,1076 L 347.6,1075 L 347.6,1074 L 347.6,1073 L 347.6,1072 L 347.6,1071 L 347.6,1070 L 347.6,1069 L 347.6,1068 L 347.6,1067 L 347.6,1066 L 347.6,1065 L 347.6,1064 L 347.6,1063 L 347.6,1062 L 347.6,1061 L 347.6,1060 L 347.6,1059 L 347.6,1058 L 347.6,1057 L 347.6,1056 L 347.6,1055 L 347.6,1054 L 347.6,1053 L 347.6,1052 L 347.6,1051 L 347.6,1050 L 347.6,1049 L 347.6,1048 L 347.6,1047 L 347.6,1046 L 347.6,1045 L 347.6,1044 L 347.6,1043 L 347.6,1042 L 347.6,1041 L 347.6,1040 L 347.6,1039 L 347.6,1038 L 347.6,1037 L 347.6,1036 L 347.6,1035 L 347.6,1034 L 347.6,1033 L 347.6,1032 L 347.6,1031 L 347.6,1030 L 347.6,1029 L 347.6,1028 L 347.6,1027 L 347.6,1026 L 347.6,1025 L 347.6,1024 L 347.6,1023 L 347.6,1022 L 347.6,1021 L 347.6,1020 L 347.6,1019 L 347.6,1018 L 347.6,1017 L 347.6,1016 L 347.6,1015 L 347.6,1014 L 347.6,1013 L 347.6,1012 L 347.6,1011 L 347.6,1010 L 347.6,1009 L 348.6,1008 L 348.6,1007 L 348.6,1006 L 348.6,1005 L 348.6,1004 L 348.6,1003 L 348.6,1002 L 348.6,1001 L 348.6,1000 L 348.6,999 L 347.6,998 L 347.6,997 L 347.6,996 L 347.6,995 L 347.6,994 L 347.6,993 L 347.6,992 L 347.6,991 L 347.6,990 L 347.6,989 L 347.6,988 L 347.6,987 L 347.6,986 L 347.6,985 L 348.6,984 L 347.6,983 L 347.6,982 L 347.6,981 L 347.6,980 L 348.6,979 L 348.6,978 L 348.6,977 L 348.6,976 L 348.6,975 L 348.6,974 L 348.6,973 L 348.6,972 L 348.6,971 L 348.6,970 L 348.6,969 L 348.6,968 L 348.6,967 L 348.6,966 L 348.6,965 L 348.6,964 L 348.6,963 L 348.6,962 L 348.6,961 L 348.6,960 L 347.6,959 L 347.6,958 L 347.6,957 L 347.6,956 L 347.6,955 L 347.6,954 L 347.6,953 L 347.6,952 L 347.6,951 L 347.6,950 L 347.6,949 L 347.6,948 L 347.6,947 L 348.6,946 L 348.6,945 L 348.6,944 L 348.6,943 L 348.6,942 L 348.6,941 L 348.6,940 L 348.6,939 L 348.6,938 L 348.6,937 L 347.6,936 L 347.6,935 L 347.6,934 L 347.6,933 L 347.6,932 L 347.6,931 L 347.6,930 L 347.6,929 L 347.6,928 L 347.6,927 L 347.6,926 L 346.6,925 L 346.6,924 L 346.6,923 L 346.6,922 L 346.6,921 L 347.6,920 L 347.6,919 L 347.6,918 L 347.6,917 L 347.6,916 L 347.6,915 L 347.6,914 L 347.6,913 L 347.6,912 L 347.6,911 L 347.6,910 L 347.6,909 L 347.6,908 L 347.6,907 L 347.6,906 L 347.6,905 L 347.6,904 L 347.6,903 L 347.6,902 L 347.6,901 L 347.6,900 L 347.6,899 L 347.6,898 L 347.6,897 L 347.6,896 L 347.6,895 L 347.6,894 L 347.6,893 L 347.6,892 L 347.6,891 L 347.6,890 L 347.6,889 L 347.6,888 L 347.6,887 L 347.6,886 L 347.6,885 L 347.6,884 L 347.6,883 L 347.6,882 L 346.6,881 L 346.6,880 L 345.6,879 L 344.6,878 L 342.6,877 L 341.6,876 L 337.6,875 Z"/><path d="M328 859 Q325 859 325 863 L325 877 Q328 882 333 878 L332 863 Q331 859 328 859Z"/></clipPath></defs><g transform="translate(351 0)"><image href="./tiger-birthday-cake-unlit.png" width="1024" height="1536" clip-path="url(#left-candle-copy)"/></g></svg></div><p id="instruction" class="mono" aria-live="polite">Tap candles to ignite · four to go</p><div><button id="blow-btn" class="btn" type="button" disabled>Blow out with a tap</button><button id="mic-btn" class="btn" type="button" disabled>Use microphone</button></div><p id="mic-status" class="status" aria-live="polite">The microphone is optional.</p></div>
+      <div class="stone-container" id="stone-container"><div class="mono" style="color:var(--moss);margin-bottom:2rem">Lithic Memory</div><div id="wishing-stone"><p>Make a birthday wish. It will be saved on this device.</p><label class="sr-only" for="wish-input">Write your birthday wish</label><textarea placeholder="Write your intention..." id="wish-input" maxlength="2000"></textarea><button id="public-choice" class="btn choice" type="button" aria-pressed="false">Keep my wish</button><button id="seal-wish" class="btn" type="button">Seal this wish</button><p id="wish-status" class="status" aria-live="polite"></p></div></div>
+    </section>
+    <section id="final-reveal" aria-label="Birthday letter and video"><div id="final-letter">A birthday letter will appear here when it is ready.</div><div class="video-shell" id="video-shell" hidden><video id="ending-video" controls playsinline preload="metadata" aria-label="Birthday video"></video></div></section>
+  </main>
+  <script src="./published-content.js"></script>
+  <script>
+    const years=[2021,2022,2023,2024,2025,2026];
+    const $=selector=>document.querySelector(selector);
+    const backgroundMusic=$('#background-music'),musicToggle=$('#music-toggle'),musicPlay=$('#music-play'),musicProgress=$('#music-progress'),musicMessage=$('#music-message');
+    let musicEnabled=true,musicScrubbing=false,musicAutoplayPending=false;
+    backgroundMusic.volume=.35;
+    backgroundMusic.muted=false;
+    const musicTime=seconds=>{const value=Number.isFinite(seconds)?Math.max(0,Math.floor(seconds)):0;return Math.floor(value/60)+':'+String(value%60).padStart(2,'0');};
+    function syncMusic(){
+      const duration=backgroundMusic.duration,ready=Number.isFinite(duration)&&duration>0;
+      musicProgress.disabled=!ready;musicProgress.max=ready?String(duration):'0';
+      if(!musicScrubbing)musicProgress.value=String(backgroundMusic.currentTime||0);
+      $('#music-current').textContent=musicTime(backgroundMusic.currentTime);$('#music-duration').textContent=musicTime(duration);
+      musicProgress.setAttribute('aria-valuetext',musicTime(backgroundMusic.currentTime)+' / '+musicTime(duration));
+      musicToggle.textContent=musicEnabled?'Music Off':'Music On';musicToggle.setAttribute('aria-pressed',String(musicEnabled));
+      musicPlay.textContent=backgroundMusic.paused?'Play':'Pause';musicPlay.setAttribute('aria-label',backgroundMusic.paused?'Play music':'Pause music');
+    }
+    async function playMusic(autoplayAttempt=false){
+      musicEnabled=true;musicAutoplayPending=false;backgroundMusic.muted=false;musicMessage.hidden=true;syncMusic();
+      try{await backgroundMusic.play();}catch(error){musicAutoplayPending=autoplayAttempt&&error.name==='NotAllowedError';musicMessage.textContent=musicAutoplayPending?'Tap anywhere to start music.':'Unable to play music. Please press Play to try again.';musicMessage.hidden=false;}
+      syncMusic();
+    }
+    musicToggle.addEventListener('click',()=>{if(musicEnabled){musicEnabled=false;musicAutoplayPending=false;backgroundMusic.pause();backgroundMusic.muted=true;musicMessage.hidden=true;syncMusic();}else playMusic();});
+    musicPlay.addEventListener('click',()=>{if(backgroundMusic.paused)playMusic();else{musicAutoplayPending=false;backgroundMusic.pause();syncMusic();}});
+    function startPendingMusic(event){if(musicAutoplayPending&&musicEnabled&&!event.target.closest('.music-player'))playMusic();}
+    document.addEventListener('pointerdown',startPendingMusic);
+    document.addEventListener('keydown',event=>{if(!event.repeat&&!['Shift','Control','Alt','Meta','Escape'].includes(event.key))startPendingMusic(event);});
+    musicProgress.addEventListener('input',()=>{if(Number.isFinite(backgroundMusic.duration)){musicScrubbing=true;backgroundMusic.currentTime=Number(musicProgress.value);syncMusic();}});
+    for(const event of ['change','blur','pointercancel'])musicProgress.addEventListener(event,()=>{musicScrubbing=false;syncMusic();});
+    for(const event of ['loadedmetadata','durationchange','timeupdate','play','pause','ended','seeked'])backgroundMusic.addEventListener(event,syncMusic);
+    backgroundMusic.addEventListener('error',()=>{musicMessage.textContent='Unable to load music. Please refresh and try again.';musicMessage.hidden=false;syncMusic();});
+    syncMusic();
+    playMusic(true);
+    const mediaUrl=url=>location.protocol==='file:'&&/^\/uploads\/[a-f0-9]{32}\.(jpg|jpeg|png|webp|mp4|webm)$/.test(url)?'./private-data'+url:url;
+    const escapeHtml=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+    function starterContent(){return {years:years.map(year=>({year,story:`A story for ${year} will appear here.`,photos:[]})),letter:'A birthday letter will appear here when it is ready.',video:''};}
+    function renderContent(content){
+      const entries=new Map((content.years||[]).map(entry=>[Number(entry.year),entry]));
+      $('#timeline-container').innerHTML=years.map((year,index)=>{
+        const entry=entries.get(year)||{story:'',photos:[]},photos=entry.photos||[];
+        const image=photos.length?`<img src="${escapeHtml(mediaUrl(photos[0].url))}" alt="${escapeHtml(photos[0].alt||`Memory from ${year}`)}" loading="lazy">`:'<div class="photo-placeholder"><span>Photo memory to come</span></div>';
+        const controls=photos.length>1?`<div class="photo-controls"><button type="button" data-photo="${year}:-1" aria-label="Previous ${year} photo">←</button><button type="button" data-photo="${year}:1" aria-label="Next ${year} photo">→</button></div>`:'';
+        const art=`<svg class="memory-art" viewBox="0 0 1793 877" aria-hidden="true"><defs><mask id="memory-window-${year}"><rect width="1793" height="877" fill="white"/><ellipse cx="512" cy="443" rx="300" ry="292" fill="black"/><path d="M440 649 C454 640 470 647 479 655 C493 650 531 650 546 655 C560 642 580 641 592 650 C602 660 598 682 590 697 C600 714 603 747 591 766 C578 786 548 797 516 797 C472 797 442 785 428 766 C418 748 422 718 433 698 C423 682 422 660 440 649Z" fill="white"/></mask><mask id="memory-artwork-${year}"><rect width="1793" height="877" fill="white"/><rect x="990" y="304" width="180" height="30" fill="black"/><rect x="972" y="363" width="240" height="105" fill="black"/><rect x="972" y="477" width="650" height="81" fill="black"/></mask></defs><g mask="url(#memory-window-${year})"><image href="./memory-watercolor-template.png" width="1793" height="877"/><image href="./memory-reference-art.png" width="1793" height="877" mask="url(#memory-artwork-${year})"/></g></svg>`;
+        return `<article class="year-block" data-year="${year}" id="memory-${year}"><div class="memory-visual"><div class="photo-frame">${image}${controls}</div>${art}</div><div class="story-content"><div class="mono">Memory ${String(index+1).padStart(2,'0')}</div><h2>${year}</h2><p>${escapeHtml(entry.story||'A story for this year will appear here.')}</p></div></article>`;
+      }).join('');
+      document.querySelectorAll('[data-photo]').forEach(button=>button.addEventListener('click',()=>{
+        const [year,step]=button.dataset.photo.split(':').map(Number),entry=entries.get(year),frame=button.closest('.photo-frame'),img=frame.querySelector('img');
+        if(!entry||!img)return;
+        const next=(Number(frame.dataset.index||0)+step+entry.photos.length)%entry.photos.length;
+        frame.dataset.index=String(next);img.src=mediaUrl(entry.photos[next].url);img.alt=entry.photos[next].alt||`Memory from ${year}`;
+      }));
+      $('#final-letter').textContent=content.letter||'A birthday letter will appear here when it is ready.';
+      const video=$('#ending-video'),shell=$('#video-shell');if(content.video){video.src=mediaUrl(content.video);shell.hidden=false;}else{video.removeAttribute('src');shell.hidden=true;}video.load();
+    }
+    const savedContent=window.HBD_PUBLISHED_CONTENT;
+    if(savedContent?.years?.length)renderContent(savedContent);
+    $('#gift-box').addEventListener('click',event=>{const box=event.currentTarget;box.disabled=true;box.style.transform='scale(4) rotate(45deg)';box.style.opacity='0';setTimeout(()=>{$('#gift-intro').hidden=true;$('#cake-stage').classList.add('open');$('#cake-stage').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});},600);});
+    let litCount=0,micStream=null,audioContext=null,micFrame=0;
+    // Percentages mark the tips of the four visible wicks in the 1024 × 1536 cake image.
+    const candlePositions=[{left:'17.8%',top:'52.4%'},{left:'32.1%',top:'56.0%'},{left:'66.3%',top:'56.0%'},{left:'83.0%',top:'53.1%'}];
+    candlePositions.forEach((position,i)=>{const candle=document.createElement('button');candle.type='button';candle.className='candle';candle.style.setProperty('--left',position.left);candle.style.setProperty('--top',position.top);candle.setAttribute('aria-label',`Light candle ${i+1}`);candle.setAttribute('aria-pressed','false');candle.innerHTML='<span class="flame" aria-hidden="true"></span>';candle.addEventListener('click',()=>{if(candle.classList.contains('lit'))return;candle.classList.add('lit');candle.setAttribute('aria-pressed','true');candle.setAttribute('aria-label',`Candle ${i+1} is lit`);candle.disabled=true;litCount++;$('#instruction').textContent=litCount===4?'Make a wish. Hold it close.':`Tap candles to ignite · ${4-litCount} to go`;if(litCount===4){$('#blow-btn').disabled=false;$('#mic-btn').disabled=false;}});$('#candle-grid').appendChild(candle);});
+    async function extinguish(){cancelAnimationFrame(micFrame);if(micStream){micStream.getTracks().forEach(track=>track.stop());micStream=null;}if(audioContext){await audioContext.close().catch(()=>{});audioContext=null;}$('#cake-stage').classList.add('extinguished');document.querySelectorAll('.candle').forEach(candle=>candle.classList.remove('lit'));$('#blow-btn').disabled=true;$('#mic-btn').disabled=true;$('#instruction').textContent='The intention is set.';$('#mic-status').textContent='The candles are out.';setTimeout(()=>{$('#cake-stage').hidden=true;$('#stone-container').classList.add('visible');$('#stone-container').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});},600);}
+    $('#blow-btn').addEventListener('click',extinguish);
+    $('#mic-btn').addEventListener('click',async()=>{if(!navigator.mediaDevices?.getUserMedia){$('#mic-status').textContent='Microphone unavailable. Use the tap button.';return;}try{micStream=await navigator.mediaDevices.getUserMedia({audio:true});audioContext=new(window.AudioContext||window.webkitAudioContext)();const analyser=audioContext.createAnalyser();analyser.fftSize=512;audioContext.createMediaStreamSource(micStream).connect(analyser);const samples=new Uint8Array(analyser.fftSize);let baseline=0,count=0,blow=0;$('#mic-status').textContent='Listening… blow gently, or use the tap button.';const listen=()=>{analyser.getByteTimeDomainData(samples);let sum=0;for(const sample of samples)sum+=(sample-128)**2;const rms=Math.sqrt(sum/samples.length);if(count<18){baseline+=rms/18;count++;}else if(rms>Math.max(17,baseline*2.5)){if(++blow>=5){extinguish();return;}}else blow=Math.max(0,blow-1);micFrame=requestAnimationFrame(listen);};listen();}catch{$('#mic-status').textContent='Microphone access unavailable. Use the tap button.';}});
+    let confirmedPublic=false;
+    $('#public-choice').addEventListener('click',event=>{confirmedPublic=!confirmedPublic;event.currentTarget.setAttribute('aria-pressed',String(confirmedPublic));});
+    $('#seal-wish').addEventListener('click',()=>{const text=$('#wish-input').value.trim(),status=$('#wish-status');if(!text){status.textContent='Write your wish first.';return;}if(!confirmedPublic){status.textContent='Select Keep my wish before sealing.';return;}try{const wishes=JSON.parse(localStorage.getItem('hbd-jin-2026-wishes')||'[]');if(!Array.isArray(wishes))throw Error();wishes.push({text,createdAt:new Date().toISOString()});localStorage.setItem('hbd-jin-2026-wishes',JSON.stringify(wishes));$('#wish-input').value='';status.textContent='Your birthday wish is saved on this device.';setTimeout(()=>$('#final-reveal').scrollIntoView({behavior:'smooth'}),500);}catch{status.textContent='Unable to save your wish on this device. Please try again.';}});
+    const cursor=$('#cursor');let sparkTimer,lastSparkAt=0,lastPointer=null;
+    function spawnGlitter(x,y,count=1,vx=0,vy=0){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;for(let i=0;i<count;i++){const dot=document.createElement('span');const size=2+Math.random()*3.5,life=760+Math.random()*520,trail=.45+Math.random()*1.1;dot.className='cursor-sparkle'+(Math.random()>.5?' star':'');dot.style.left=(x-vx*trail+(Math.random()-.5)*16)+'px';dot.style.top=(y-vy*trail+(Math.random()-.5)*16)+'px';dot.style.setProperty('--size',size+'px');dot.style.setProperty('--life',life+'ms');dot.style.setProperty('--dx',((Math.random()-.5)*24-vx*.2)+'px');dot.style.setProperty('--dy',(-4-Math.random()*18-vy*.2)+'px');document.body.appendChild(dot);setTimeout(()=>dot.remove(),life+50);}}
+    window.addEventListener('mousemove',event=>{cursor.style.left=event.clientX+'px';cursor.style.top=event.clientY+'px';cursor.classList.add('visible');const now=performance.now();if(lastPointer){const vx=event.clientX-lastPointer.x,vy=event.clientY-lastPointer.y;if(Math.hypot(vx,vy)>2&&now-lastSparkAt>36){spawnGlitter(event.clientX,event.clientY,Math.random()>.55?3:2,vx,vy);lastSparkAt=now;}}lastPointer={x:event.clientX,y:event.clientY};},{passive:true});
+    window.addEventListener('mouseout',event=>{if(!event.relatedTarget)cursor.classList.remove('visible');});
+    window.addEventListener('click',event=>{if(event.detail===0)return;cursor.style.left=event.clientX+'px';cursor.style.top=event.clientY+'px';cursor.classList.add('spark');spawnGlitter(event.clientX,event.clientY,9);clearTimeout(sparkTimer);sparkTimer=setTimeout(()=>cursor.classList.remove('spark'),320);});
+    window.addEventListener('touchstart',event=>{const touch=event.touches[0];cursor.style.left=touch.clientX+'px';cursor.style.top=touch.clientY+'px';cursor.classList.add('visible','spark');spawnGlitter(touch.clientX,touch.clientY,10);setTimeout(()=>cursor.classList.remove('visible','spark'),620);},{passive:true});
+  </script>
+</body>
+</html>
